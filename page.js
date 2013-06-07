@@ -1,33 +1,45 @@
 //debug
 (function viewport(){
-	//create element
-	var el = document.createElement("div");
+	function parseQuery(){
+		var query = {};
+		var temp = window.location.search.substring(1).split('&');
+		temp.forEach(function(el){
+			var q = el.split('=');
+			query[q[0]] = q[1];
+		});
+		return query;
+	}
+	
+	if (parseQuery()['debug']){
+		//create element
+		var el = document.createElement("div");
 
-	//style as you wish
-	el.id = 'screenSize';
-	el.style.position = "fixed";
-	el.style.width = "100%";
-	el.style.left = "0px";
-	el.style.bottom = "5px";
-	el.style.color = "#35b4e3";
-	el.style.textAlign = "center";
-	el.style.fontWeight = "bold";
-	el.style.fontSize = "100%";
+		//style as you wish
+		el.id = 'screenSize';
+		el.style.position = "fixed";
+		el.style.width = "100%";
+		el.style.left = "0px";
+		el.style.bottom = "5px";
+		el.style.color = "#35b4e3";
+		el.style.textAlign = "center";
+		el.style.fontWeight = "bold";
+		el.style.fontSize = "100%";
 
-	//gets size
-	function getSize(){ return window.innerWidth + ' x ' + window.innerHeight; }
+		//gets size
+		function getSize(){ return window.innerWidth + ' x ' + window.innerHeight; }
 
-	//displays size
-	function displaySize(){ el.innerHTML = getSize(); }
+		//displays size
+		function displaySize(){ el.innerHTML = getSize(); }
 
-	//insert element
-	document.body.appendChild(el);
+		//insert element
+		document.body.appendChild(el);
 
-	//innitial sizing
-	displaySize();
+		//innitial sizing
+		displaySize();
 
-	//resize listener
-	window.onresize = displaySize;
+		//resize listener
+		window.onresize = displaySize;
+	}
 })();
 
 (function classToggle(){
