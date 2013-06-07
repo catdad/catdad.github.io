@@ -1,6 +1,6 @@
 //debug
 (function viewport(){
-	function parseQuery(){
+	var query = (function parseQuery(){
 		var query = {};
 		var temp = window.location.search.substring(1).split('&');
 		temp.forEach(function(el){
@@ -8,9 +8,9 @@
 			query[q[0]] = q[1];
 		});
 		return query;
-	}
+	})();
 	
-	if (parseQuery()['debug']){
+	if (query.debug){
 		//create element
 		var el = document.createElement("div");
 
