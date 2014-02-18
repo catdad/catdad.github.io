@@ -110,7 +110,7 @@ var imageClick = function imageClick(){
 		var desc = img.attributes["data-description"].value;
 		var link = "<a href='"
 			+ img.attributes["data-link"].value
-			+ "' target='blank'>Visit the site</a>";
+			+ "' target='_blank'>Visit the site</a>";
 		return "<div class='text'>" + desc + link + "</div>";
 	}();
 
