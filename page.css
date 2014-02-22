@@ -6,10 +6,6 @@
   src: local('Arimo'), url(http://themes.googleusercontent.com/static/fonts/arimo/v4/wZLYhRRxZWGToTRP78bqJQ.woff) format('woff');
 }
 
-/*
-@import url(http://fonts.googleapis.com/css?family=Noto+Sans|Gudea|Merriweather+Sans|Amaranth|Quattrocento+Sans|Yanone+Kaffeesatz);
-/* */
-
 /* Start Reset CSS */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline;}
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
@@ -19,8 +15,6 @@ blockquote:before, blockquote:after, q:before, q:after {content: ''; content: no
 table {border-collapse: collapse; border-spacing: 0;}
 
 i { font-style: italic; }
-
-* { outline: none;}
 /* End Reset CSS */
 
 /* colors
@@ -110,8 +104,9 @@ a{ color: #35b4e3; }
 	z-index: 1;
 	opacity: 1;
 }
-.portfolio img.dim{ opacity: .5; }
-.portfolio img.active{ border-color: #35b4e3; opacity: 1}
+/* fix for bug in Chrome Dev 34.0.1847.3 */
+/*.portfolio*/ img.dim{ opacity: .5 !important; }
+/*.portfolio*/ img.active{ border-color: #35b4e3 !important; opacity: 1 !important; }
 
 #tooltip{
 	position: relative;

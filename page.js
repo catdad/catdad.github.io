@@ -3,10 +3,10 @@
 	var query = (function parseQuery(){
 		var query = {};
 		var temp = window.location.search.substring(1).split('&');
-		temp.forEach(function(el){
-			var q = el.split('=');
-			query[q[0]] = q[1];
-		});
+		for (var i = temp.length; i--;) {
+			var q = temp[i].split('=');
+			query[q.shift()] = q.join('=');
+		}
 		return query;
 	})();
 	
@@ -34,7 +34,7 @@
 		//insert element
 		document.body.appendChild(el);
 
-		//innitial sizing
+		//initial sizing
 		displaySize();
 
 		//resize listener
@@ -65,7 +65,7 @@
 })();
 //end debug
 
-//list itterator
+//list iterator
 function each(list, callback){
 	for (var i = 0, length = list.length; i < length; i++){
 		callback(list[i], i, list);
@@ -73,15 +73,13 @@ function each(list, callback){
 }
 
 //scroll to element
-function scrollTo(el){
-	if(el.offsetParent){
-		window.scroll(0, (function(){
-			var position = 0;
-			do { position += el.offsetTop; }
-			while (el = el.offsetParent);
-			return position;
-		}()));
-	}
+function scrollTo(el, offset){
+	el.offsetParent && window.scroll(0, (function(){
+		var position = 0;
+		do { position += el.offsetTop; }
+		while (el = el.offsetParent);
+		return position - (+offset || 0);
+	})());
 }
 
 //get all portfolio images
@@ -116,12 +114,6 @@ var imageClick = function imageClick(){
 
 	//tooltip + methods
 	var tooltip = document.getElementById("tooltip");
-	var getId = function(el){
-		return (el.attributes["data-id"]) ? el.attributes["data-id"].value : undefined;
-	};
-	var setId = function(val){
-		tooltip.attributes["data-id"].value = (val) ? val : "";
-	};
 	var show = function(){
 		//set tooltip
 		tooltip.innerHTML = description;
@@ -131,23 +123,18 @@ var imageClick = function imageClick(){
 		//add active class
 		img.classList.add("active");
 
-		//set Id
-		setId(getId(img));
-
-		scrollTo(tooltip);
+		scrollTo(tooltip, 10);
 	};
 	var hide = function(){
 		//reset tooltip
 		tooltip.innerHTML = "";
+		
+		//reset imgs
 		resetAll();
-
-		//reset Id
-		setId();
 	};
 
 	//perform tooltip actions
-	if (getId(tooltip) === getId(img)) hide();
-	else show();
+	(img.classList.contains('active')) ? hide() : show();
 }
 
 //set click events for portfolio images
