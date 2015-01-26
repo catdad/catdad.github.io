@@ -1,0 +1,208 @@
+/* Start Reset CSS */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline;}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
+ol, ul {list-style: none;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after, q:before, q:after {content: ''; content: none;}
+table {border-collapse: collapse; border-spacing: 0;}
+
+i { font-style: italic; }
+/* End Reset CSS */
+
+html, body {
+    margin: 0;
+	padding: 0;
+	width: 100%;
+	max-height: 100%;
+    font-size: 1em;
+}
+
+body {
+    background: #efefef;
+    font-family: sans-serif;
+    width: 100%;
+    overflow-x: hidden;
+    color: #333;
+    font-family: 'Lato', sans-serif;
+}
+
+/****************
+Body - header
+****************/
+
+header {
+    position: relative;
+    color: #351D45;
+    color: #48145E;
+    background: currentColor;
+    height: 460px;
+    overflow: visible;
+}
+header:before {
+    content: '';
+    position: absolute;
+    height: 0;
+    left: 0;
+    right: 0;
+    border-left: 50vw solid transparent;
+    border-right: 50vw solid transparent;
+    bottom: -80px;
+    border-top: 80px solid currentColor;
+    z-index: 0;
+}
+
+.hero {
+    position: relative;
+    color: #efefef;
+    width: 90%;
+    margin: 0 auto;
+    max-width: 32rem;
+    padding: 40px 0 0;
+    text-align: center;
+    z-index: 1;
+}
+
+.avatar {
+    box-sizing: border-box;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid white;
+    box-shadow: 0px 5px 25px 0px #140E17;
+}
+
+.name {
+    font-size: 4rem;
+    margin: 20px 0 15px;
+    font-family: 'PT Serif';
+}
+.tagline {
+    font-size: 1.3rem;
+}
+.title {
+    margin: 15px 0 5px;
+    font-size: 1.1rem;
+}
+.job {}
+
+/****************
+Body - content
+****************/
+
+.wrapper {
+    width: 100%;
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 100px 0 40px;
+}
+
+.portfolio {
+    text-align: center;
+}
+
+.project {
+    position: relative;
+    width: 30%;
+    margin: 20px 1.5%;
+    display: inline-block;
+    vertical-align: top;
+    padding-bottom: 2rem;
+    text-align: left;
+    padding: 20px 20px 50px;
+    border-radius: 2px;
+    background: white;
+    box-shadow: 0 3px 5px -3px black;
+    box-sizing: border-box;
+}
+
+.project img {
+    display: block;
+    box-sizing: border-box;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 10px auto 20px;
+    box-shadow: 0 5px 18px -5px black;
+}
+
+.project a {
+    color: currentColor;
+}
+
+.project .link {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    display: block;
+}
+.project .link a {
+    color: #9311CC;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/****************
+Body - social
+****************/
+
+.social {
+    text-align: center;
+}
+.social a {
+	display: inline-block;
+    box-sizing: border-box;
+    width: 48px;
+	height: 48px;
+    padding: 10px;
+    margin: 6px;
+
+    background: white;
+	border-radius: 50%;
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,.2) inset;
+    text-decoration: none;
+}
+.social a svg {
+    width: 100%;
+    height: 100%;
+}
+
+.social svg path { fill: #666; }
+
+.social a:hover svg#icon-gplus     path { fill: #C63725; }
+.social a:hover svg#icon-github    path { fill: #333333; }
+.social a:hover svg#icon-twitter   path { fill: #4393D0; }
+.social a:hover svg#icon-linkedin  path { fill: #0077B5; }
+.social a:hover svg#icon-mail      path { fill: #48145E; }
+
+/****************
+Body - media
+****************/
+
+@media all and (max-width: 920px) {
+    .project {
+        width: 46%;
+    }
+}
+
+@media all and (max-width: 650px) {
+    .project {
+        width: 90%;
+        margin: 20px auto;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .tagline { font-size: 1rem; }
+    .job { font-size: .9rem; }
+}
+
+@media all and (max-width: 400px) {
+    .avatar { width: 160px; height: 160px; }
+    .name { font-size: 3em; }
+    
+    .project img { width: 130px; height: 130px; }
+}
