@@ -129,6 +129,68 @@
     </div>
     
     <script src="analytics.js" type="text/javascript"></script>
+    <script>
+        //debug
+        (function viewport(){
+            var query = (function parseQuery(){
+                var query = {};
+                var temp = window.location.search.substring(1).split('&');
+                for (var i = temp.length; i--;) {
+                    var q = temp[i].split('=');
+                    query[q.shift()] = q.join('=');
+                }
+                return query;
+            })();
+
+            if (query.debug){
+                //create element
+                var el = document.createElement("div"),
+                    style = el.style;
+
+                //style as you wish
+                style.position = 'fixed';
+                style.display = 'inline-block';
+                style.left = '50%';
+
+                style['-webkit-transform'] = 'translate(-50%,0)';
+                style['-ms-transform'] = 'translate(-50%,0)';
+                style.transform = 'translate(-50%,0)';
+                style.transform = 'translate3d(-50%,0,0)';
+                style['transform-style'] = 'preserve-3d';
+
+                style.width = 'auto';
+                style.bottom = '0';
+                style['text-align'] = 'center';
+                style['font-weight'] = 'bold';
+                style['font-size'] = '100%';
+                style.color = '#eee';
+                style.background = '#48145E';
+                style.padding = '4px 20px';
+                style['border-radius'] = '5px 5px 0 0';
+
+                // gets screen pixel size
+                function getSize(){ return window.innerWidth + ' x ' + window.innerHeight; }
+                
+                // get screen pixel density
+                function getDensity(){ return window.devicePixelRatio ? '@' + window.devicePixelRatio + 'dpi' : ''; }
+
+                //displays size
+                function displaySize(){ 
+                    el.innerHTML = '';
+                    el.appendChild(document.createTextNode(getSize() + ' ' + getDensity()));
+                }
+
+                //insert element
+                document.body.appendChild(el);
+
+                //initial sizing
+                displaySize();
+
+                //resize listener
+                window.onresize = displaySize;
+            }
+        })();
+    </script>
 </body>
 
 </html>
