@@ -75,7 +75,7 @@ header:before {
 .name {
     font-size: 4rem;
     margin: 20px 0 15px;
-    font-family: 'PT Serif';
+    font-family: 'PT Serif', serif;
 }
 .tagline {
     font-size: 1.3rem;
@@ -205,4 +205,129 @@ Body - media
     .name { font-size: 3em; }
     
     .project img { width: 130px; height: 130px; }
+}
+
+@page {
+    size: portrait;
+    margin: 0cm;
+    padding: .5in;
+    box-sizing: border-box;
+    white-space: pre;
+}
+
+@media print {
+    html, body {
+        display: block;
+        color: black;
+        background-color: white;
+    }
+    a:link, a:visited { background: transparent; color: black; text-decoration: none; }
+    
+    header, .hero { 
+        height: auto;
+        color: inherit;
+        background-color: white;
+    }
+    header:before { display: none; }
+    header { padding-top: 50px; }
+    
+    .title, .portfolio:before {
+        font-size: 1.2rem;
+        font-family: 'PT Serif', serif;
+        text-decoration: underline;
+    }
+    .title:after {
+        content: ":";
+    }
+    
+    .wrapper {
+        max-width: 100%;
+        padding: 40px 0;
+    }
+    
+    /* flatten the portfolio */
+    .portfolio { 
+        padding-top: 1.2rem;
+        text-align: left;
+        position: relative;
+        margin: 0;
+    }
+    .portfolio:before {
+        content: 'Portfolio:';
+        position: absolute;
+        width: 100%;
+        text-align: center;
+    }
+    .project {
+        position: relative;
+        width: 100%;
+        display: table;
+        box-shadow: none;
+        padding: .5in .5in 2rem;
+        page-break-inside: avoid;
+    }
+    
+    .project img {
+        display: table-cell;
+        vertical-align: middle;
+        box-shadow: none;
+        border: 2px solid #666;
+    }
+    .project .description {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 0 0 0 30px;
+        line-height: 1.4rem;
+    }
+    .project .link {
+        bottom: -0.5rem;
+        display: block;
+        text-align: left;
+        padding-left: 230px;
+    }
+    .project .link a,
+    .project .link a:after {
+        color: #555;
+        font-size: .9rem;
+        font-style: italic;
+    }
+    .project .link a:after {
+        content: ": " attr(href);
+    }
+    
+    .social {
+        width: 60%;
+        margin: 0 auto;
+        padding-top: .5in;
+    }
+    
+    .social a {
+        display: block;
+        position: relative;
+        width: 2.5rem;
+        height: 2.5rem;
+        box-shadow: none;
+    }
+    .social a:after {
+        content: attr(href);
+        position: absolute;
+        top: 25%;
+        left: 58px;
+        white-space: pre;
+        color: #666;
+    }
+    .social a svg#icon-gplus     path { fill: #C63725; }
+    .social a svg#icon-github    path { fill: #333333; }
+    .social a svg#icon-twitter   path { fill: #4393D0; }
+    .social a svg#icon-linkedin  path { fill: #0077B5; }
+    .social .social-email { display: none; }
+    
+    /* clearfix */
+    .project:after,
+    .clearfix:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    
 }
