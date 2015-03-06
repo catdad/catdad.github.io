@@ -110,11 +110,19 @@ Body - content
     padding-bottom: 2rem;
     text-align: left;
     padding: 20px 20px 50px;
-    border-radius: 2px;
+    border-radius: 2px 2px 3px 3px;
     background: white;
     box-shadow: 0 3px 5px -3px black;
     box-sizing: border-box;
+    border-bottom: 1px solid white;
 }
+
+.project[data-project=responsive-map] { border-color: #f8433e; }
+.project[data-project=fork-ribbon]    { border-color: #F6C304; }
+.project[data-project=tiny-toast]     { border-color: #F26F83; }
+.project[data-project=color-js]       { border-color: #F6C304; }
+.project[data-project=geogame]        { border-color: #95D51F; }
+.project[data-project=julian-eggs]    { border-color: #519DE7; }
 
 .project img {
     display: block;
