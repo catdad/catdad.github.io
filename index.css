@@ -273,6 +273,7 @@ Body - media
         box-shadow: none;
         padding: .5in .5in 2rem;
         page-break-inside: avoid;
+        border: none;
     }
     
     .project img {
