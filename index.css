@@ -34,7 +34,7 @@ header {
     color: #351D45;
     color: #48145E;
     background: currentColor;
-    height: 460px;
+    height: 500px;
     overflow: visible;
 }
 header:before {
@@ -72,18 +72,21 @@ header:before {
 }
 
 .name {
-    font-size: 4rem;
+    font-size: 4.2rem;
     margin: 20px 0 15px;
     font-family: 'PT Serif', serif;
 }
 .tagline {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
 }
 .title {
     margin: 15px 0 5px;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
-.job {}
+.job {
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
 
 /****************
 Body - content
@@ -150,6 +153,8 @@ Body - content
     color: #9311CC;
     text-decoration: none;
     font-weight: bold;
+    text-transform: uppercase;
+    font-size: .9rem;
 }
 
 /****************
@@ -190,28 +195,34 @@ Body - media
 ****************/
 
 @media all and (max-width: 920px) {
-    .project {
-        width: 46%;
-    }
+    .project { width: 46%; }
 }
 
-@media all and (max-width: 650px) {
+@media all and (max-width: 660px) {
+    header { height: 480px; }
     .project {
         width: 90%;
         margin: 20px auto;
     }
+    
+    .tagline { font-size: 1.1rem; }
+    .job { font-size: 1rem; }
 }
 
-@media all and (max-width: 500px) {
-    .tagline { font-size: 1rem; }
-    .job { font-size: .9rem; }
-}
-
-@media all and (max-width: 400px) {
+@media all and (max-width: 460px) {
+    header { height: 430px; }
     .avatar { width: 160px; height: 160px; }
     .name { font-size: 3em; }
     
+    .tagline { font-size: 1rem; }
+    .job { font-size: .9rem; }
+    
     .project img { width: 130px; height: 130px; }
+}
+
+@media all and (max-width: 330px) {
+    .tagline { font-size: .95rem; }
+    .job { font-size: .75rem; }
 }
 
 @page {
