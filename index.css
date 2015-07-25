@@ -19,11 +19,10 @@ html, body {
 
 body {
     background: #efefef;
-    font-family: sans-serif;
     width: 100%;
     overflow-x: hidden;
     color: #333;
-    font-family: 'Lato', sans-serif;
+    font-family: -apple-system-font, 'Roboto', sans-serif;
 }
 
 /****************
@@ -112,7 +111,7 @@ Body - content
     padding: 20px 20px 50px;
     border-radius: 2px 2px 3px 3px;
     background: white;
-    box-shadow: 0 3px 5px -3px black;
+    box-shadow: 0 4px 10px -4px rgba(0, 0, 0, 0.75);
     box-sizing: border-box;
     border-bottom: 1px solid white;
 }
@@ -132,7 +131,7 @@ Body - content
     border-radius: 50%;
     object-fit: cover;
     margin: 10px auto 20px;
-    box-shadow: 0 5px 18px -5px black;
+    box-shadow: 0 5px 12px -6px rgba(0,0,0,.75);
 }
 
 .project a {
